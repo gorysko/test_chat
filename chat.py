@@ -13,9 +13,9 @@ application.config['PORT'] = 5000
 
 @application.route('/', methods=['GET',])
 def landing():
-    return "TEST"
+    return render_template('landing.html')
 
-@application.route('/socket.io/<path:remaining>'):
+@application.route('/socket.io/<path:remaining>')
 def socketio(remaining):
     try:
         socketio_manage(request.environ, {'/chat': ChatNamespace}, request)
